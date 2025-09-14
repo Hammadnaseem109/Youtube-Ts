@@ -6,7 +6,7 @@ type HomeCardsProps = {
 
 export default function HomeCards({ thumbnail, title, url }: HomeCardsProps) {
   console.log(url);
-  
+
   return (
     <div
       className="mt-3 p-2 flex flex-col 
