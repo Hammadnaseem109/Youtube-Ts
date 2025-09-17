@@ -8,7 +8,7 @@ function Home() {
 
   useEffect(() => {
     (async () => {
-      const data = await fetch("/songs.json");
+      const data = await fetch("https://gist.githubusercontent.com/poudyalanil/ca84582cbeb4fc123a13290a586da925/raw/videos.json");
       const list = await data.json();
       setsongs(list);
     })();
@@ -27,9 +27,9 @@ function Home() {
           className="cursor-pointer"
         >
           <HomeCards
-            thumbnail={song.thumbnail}
+            thumbnail={song.thumbnailUrl}
             title={song.title}
-            url={song.url}
+            url={song.videoUrl}
           />
         </div>
       ))}

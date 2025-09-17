@@ -23,20 +23,20 @@ export default function PlayingVideo() {
     >
       <Pvideo
         title={currentSong.title}
-        url={currentSong.url}
-        thumbnail={currentSong.thumbnail}
+        url={currentSong.videoUrl}
+        thumbnail={currentSong.thumbnailUrl}
       />
 
       <div className="flex flex-col gap-2 items-center sm:items-center ">
         {songs
-          .filter((s: any) => s.url !== currentSong.url)
+          .filter((s: any) => s.videoUrl !== currentSong.videoUrl)
           .map((s: any, i: number) => (
             <div
               key={i}
               onClick={() => setCurrentSong(s)}
               className="cursor-pointer"
             >
-              <Pcard title={s.title} thumbnail={s.thumbnail} url={s.url} />
+              <Pcard title={s.title} thumbnail={s.thumbnailUrl} url={s.videoUrl} />
             </div>
           ))}
       </div>

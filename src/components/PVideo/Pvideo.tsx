@@ -12,11 +12,11 @@ export default function Pvideo({ title, url, thumbnail }: PvideoProps) {
     
     <div className="flex flex-col w-[80vw] sm:w-[80wv] md:w-[50vw] lg:w-[50vw] h-[80vh]">
       <div className="flex flex-col w-[100%] h-[75%]">
-        <iframe
+        <video
           src={url}
           title={title}
           className="w-[100%] h-full rounded-lg object-cover"
-          allowFullScreen
+          controls
         />
       </div>
 
