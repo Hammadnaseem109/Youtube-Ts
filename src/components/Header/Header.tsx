@@ -10,7 +10,7 @@ type Header = {
   onClick: () => void;
 };
 export default function Header({ onClick }: Header) {
-  const [show, setshow] = useState(false);
+  const [show, setshow] = useState<boolean>(false);
   return (
     <div className="flex flex-row w-full fixed top-0 z-100000000000 bg-white h-[11vh]">
       <div className="flex flex-row lg:w-[20%] md:w-[25%] sm:w-[30%]  items-center justify-start">

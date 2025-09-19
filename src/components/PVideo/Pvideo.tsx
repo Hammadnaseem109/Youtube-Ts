@@ -5,11 +5,9 @@ type PvideoProps = {
 };
 
 export default function Pvideo({ title, url, thumbnail }: PvideoProps) {
-    console.log(thumbnail);
-    
+  console.log(thumbnail);
+
   return (
-    
-    
     <div className="flex flex-col w-[80vw] sm:w-[80wv] md:w-[50vw] lg:w-[50vw] h-[80vh]">
       <div className="flex flex-col w-[100%] h-[75%]">
         <video
@@ -24,8 +22,6 @@ export default function Pvideo({ title, url, thumbnail }: PvideoProps) {
         <p className="font-semibold text-lg">{title}</p>
         <p className="font-semibold text-lg">T-Series</p>
         <p className="font-semibold text-lg">Song</p>
-                
-
       </div>
     </div>
   );

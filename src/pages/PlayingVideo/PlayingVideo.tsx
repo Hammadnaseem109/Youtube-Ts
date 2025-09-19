@@ -2,12 +2,21 @@ import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Pcard from "../../components/Pcard/Pcard";
 import Pvideo from "../../components/PVideo/Pvideo";
-
+interface Song {
+  title: string;
+  videoUrl: string;
+  thumbnailUrl: string;
+}
+interface LocationState {
+  songs: Song[];
+  song: Song;
+}
 export default function PlayingVideo() {
   const location = useLocation();
-  const { song, songs } = location.state || {};
+  const state = location.state as LocationState;
 
-  const [currentSong, setCurrentSong] = useState<any>(song);
+  const { song, songs } = state;
+  const [currentSong, setCurrentSong] = useState<Song>(song);
 
   useEffect(() => {
     if (song) setCurrentSong(song);
@@ -28,17 +37,19 @@ export default function PlayingVideo() {
       />
 
       <div className="flex flex-col gap-2 items-center sm:items-center ">
-        {songs
-          .filter((s: any) => s.videoUrl !== currentSong.videoUrl)
-          .map((s: any, i: number) => (
-            <div
-              key={i}
-              onClick={() => setCurrentSong(s)}
-              className="cursor-pointer"
-            >
-              <Pcard title={s.title} thumbnail={s.thumbnailUrl} url={s.videoUrl} />
-            </div>
-          ))}
+        {songs.map((s: Song, i: number) => (
+          <div
+            key={i}
+            onClick={() => setCurrentSong(s)}
+            className="cursor-pointer"
+          >
+            <Pcard
+              title={s.title}
+              thumbnail={s.thumbnailUrl}
+              url={s.videoUrl}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );
